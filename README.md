@@ -10,7 +10,6 @@
 > ##### 1. From the Tools menu, select NuGet Package Manager > Package Manager Console.
 > ##### 2. In the PMC, enter the following commands:
 > ```PowerShell
-> Remove-Migration
 > Add-Migration InitialCreate
 > Update-Database
 > ```
@@ -22,7 +21,6 @@
 > ##### 1. From the Tools menu, select NuGet Package Manager > Package Manager Console.
 > ##### 2. In the PMC, enter the following commands:
 > ```PowerShell
-> Remove-Migration
 > Add-Migration InitialCreate
 > Update-Database
 > ```
