@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Authentication
+
+<h2>HttpContext.User.Claims</h2>
+
+<dl>
+	@foreach (var claim in User.Claims)
+	{
+		<dt>@claim.Type</dt>
+		<dd>@claim.Value</dd>
+	}
+</dl>
+
+<h2>AuthenticationProperties</h2>
+
+<dl>
+	@foreach (var prop in (await Context.AuthenticateAsync()).Properties.Items)
+	{
+		<dt>@prop.Key</dt>
+		<dd>@prop.Value</dd>
+	}
+	@{
+		var authenticateResult = await Context.AuthenticateAsync();
+		if (authenticateResult.Succeeded)
+		{
+			foreach (var prop in authenticateResult.Properties.Items)
+			{
+				var key = prop.Key;
+				var value = prop.Value;
+				if (value != null)
+				{
+					<dt>@key</dt>
+					<dd>@value</dd>
+				}
+			}
+		}
+	}
+</dl>
